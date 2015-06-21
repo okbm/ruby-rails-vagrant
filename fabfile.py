@@ -22,7 +22,7 @@ def update_packages():
 def setup_devtools():
     puts(green('Installing Devtools'))
     packages = '''
-        vim curl wget build-essential tmux screen zsh make sqlite3 tig tree locate git-core python-software-properties
+        vim curl wget build-essential tmux screen zsh make sqlite3 tig tree locate git-core python-software-properties libsqlite3-dev
         '''.split()
 
     for pkg in packages:
