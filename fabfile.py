@@ -7,10 +7,12 @@ from cuisine import run
 import cuisine
 
 env.hosts = ['vagrant@192.168.56.101']
-#env.port = 2222
 env.user = 'vagrant'
 env.password = 'vagrant'
 env.forward_agent = True
+
+# env.port = 2222
+# env.key_filename = ['~/.ssh/id_rsa']
 
 @task
 def update_packages():
@@ -22,7 +24,7 @@ def update_packages():
 def setup_devtools():
     puts(green('Installing Devtools'))
     packages = '''
-        vim curl wget build-essential tmux screen zsh make sqlite3 tig tree locate git-core python-software-properties libsqlite3-dev
+        vim curl wget build-essential tmux screen zsh make sqlite3 tig tree locate git-core python-software-properties libsqlite3-dev jq libmysqlclient15-dev
         '''.split()
 
     for pkg in packages:

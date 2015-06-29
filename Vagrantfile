@@ -17,5 +17,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.network :private_network, ip: "192.168.56.101"
   # config.vm.network "forwarded_port", guest: 5000, host: 5000
+
+  # This is usually because the "vboxsf" file system is not available
+  command = "ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions || true"
+  config.vm.provision "shell", inline: command
+
 end
 
